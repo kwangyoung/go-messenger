@@ -1,6 +1,8 @@
 # go-auth
 ## Dependencies
 
+## CI Test
+
 * [Docker](http://docker.io)
 
 ## Usage
