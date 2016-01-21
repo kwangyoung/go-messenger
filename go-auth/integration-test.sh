@@ -1,12 +1,12 @@
 #!/bin/bash
 
 function quit {
-	sudo docker-compose stop
-	sudo docker-compose rm -f
+	docker-compose stop
+	docker-compose rm -f
 	exit $1
 }
 
-sudo docker-compose up -d
+docker-compose up -d
 
 
 # Make sure containers are ready for the test
