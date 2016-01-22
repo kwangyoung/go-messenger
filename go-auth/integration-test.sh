@@ -10,8 +10,7 @@ docker-compose up -d
 
 
 # Make sure containers are ready for the test
-#sleep 20
-sleep 60
+sleep 20
 
 if [ "$(uname -s)" = "Darwin" ] ; then
 	service_ip=$(boot2docker ip)

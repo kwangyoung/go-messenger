@@ -1,5 +1,5 @@
 Goauth:
-  image: usman/go-auth:develop
+  image: usman/go-auth
   ports:
     - "9000:9000"
   stdin_open: true
@@ -15,7 +15,7 @@ Goauth:
     - "db"
     - "-p"
     - "9000"
-#  tty: true
+  tty: true
 
 Database:
   image: mysql
@@ -29,5 +29,5 @@ Database:
   ports:
     - "3306:3306"
   stdin_open: true
-#  tty: true
+  tty: true
 
