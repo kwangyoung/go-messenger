@@ -12,8 +12,8 @@ function quit {
 
 docker rm -f Database Goauth
 
-docker run --name Database --expose 3306 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=rootpass -e MYSQL_DATABASE=messenger -e MYSQL_USER=messenger -e MYSQL_PASSWORD=messenger mysql
-docker run --name Goauth -p 9000:9000 --link="Database:db" usman/go-auth:develop -l debug -t console run --db-host db -p 9000
+docker run -d --name Database --expose 3306 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=rootpass -e MYSQL_DATABASE=messenger -e MYSQL_USER=messenger -e MYSQL_PASSWORD=messenger mysql
+docker run -d --name Goauth -p 9000:9000 --link="Database:db" usman/go-auth:develop -l debug -t console run --db-host db -p 9000
 
 
 # Make sure containers are ready for the test
