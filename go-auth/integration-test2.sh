@@ -3,15 +3,15 @@
 function quit {
 #	docker-compose stop
 #	docker-compose rm -f
-	docker stop Goauth Database
-	docker rm -f Goauth Database
+	docker stop Database Goauth
+	docker rm -f Database Goauth
 	exit $1
 }
 
 #docker-compose up -d
 
-docker run -i --name Goauth -p 9000:9000 --link="Database:db" usman/go-auth:develop -l debug -t console run --db-host db -p 9000
-docker run -i --name Database --expose 3306 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=rootpass -e MYSQL_DATABASE=messenger -e MYSQL_USER=messenger -e MYSQL_PASSWORD=messenger mysql
+docker run --name Database --expose 3306 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=rootpass -e MYSQL_DATABASE=messenger -e MYSQL_USER=messenger -e MYSQL_PASSWORD=messenger mysql
+docker run --name Goauth -p 9000:9000 --link="Database:db" usman/go-auth:develop -l debug -t console run --db-host db -p 9000
 
 
 # Make sure containers are ready for the test
