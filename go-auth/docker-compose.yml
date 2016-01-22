@@ -1,5 +1,5 @@
 Goauth:
-  image: usman/go-auth:develop
+  image: usman/go-auth:v1
   ports:
     - "9000:9000"
   stdin_open: true
