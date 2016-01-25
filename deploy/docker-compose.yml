@@ -40,4 +40,6 @@ mysql-master:
   image: mysql
   expose:
   - "3306"
+  ports:
+  - "3306:3306"
   stdin_open: true
