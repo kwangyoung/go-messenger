@@ -38,4 +38,6 @@ mysql-master:
     MYSQL_PASSWORD: messenger
   tty: true
   image: mysql
+  expose:
+  - "3306"
   stdin_open: true
