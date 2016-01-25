@@ -4,16 +4,16 @@ import (
 	"os"
 
 	"github.com/codegangsta/cli"
-	"github.com/usmanismail/go-messenger/go-auth/app"
-	"github.com/usmanismail/go-messenger/go-auth/logger"
+	"github.com/kwangyoung/go-messenger/go-auth/app"
+	"github.com/kwangyoung/go-messenger/go-auth/logger"
 )
 
 func main() {
 
 	cliApp := cli.NewApp()
 	cliApp.Name = "go-auth"
-	cliApp.Author = "Usman Ismail"
-	cliApp.Email = "usman@techtraits.com"
+	cliApp.Author = "Kwangyoung Kim"
+	cliApp.Email = "kwangyoung.kim@gmail.com"
 	cliApp.Usage = "A RESTful Authentication Service with a Database backend"
 	cliApp.Commands = []cli.Command{getRunCommand()}
 	cliApp.Flags = []cli.Flag{
