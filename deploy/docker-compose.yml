@@ -1,34 +1,43 @@
+mysql-master:
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: rootpass
+    MYSQL_DATABASE: messenger
+    MYSQL_USER: messenger
+    MYSQL_PASSWORD: messenger
+  expose:
+  - "3306"
+  stdin_open: true
+  tty: true
+
 auth-service:
-    tty: true
-    command:
-    - "-l"
-    - "debug"
-    - "-t"
-    - "console"
-    - "run"
-    - "--db-host"
-    - "mysql-master"
-    - "-p"
-    - "9000"
-    image: kwangyoung/go-auth:${auth_version}
-    stdin_open: true
-    links:
-    - mysql-master:mysql-master
+  tty: true
+  command:
+  - -l
+  - debug
+  - -t
+  - console
+  - run
+  - --db-host
+  - mysql-master
+  - -p
+  - '9000'
+  image: kwangyoung/go-auth:${auth_version}
+  links:
+  - mysql-master:mysql-master
+  stdin_open: true
 
 auth-lb:
   ports:
   - '9000'
   expose:
   - 9090:9000
-#  - '9001'
-#  labels:
-#    io.rancher.loadbalancer.ssl.ports: '9001'
-#    io.rancher.loadbalancer.target.auth-service: 9000=9000,9001=9000
   tty: true
   image: rancher/load-balancer-service
   links:
   - auth-service:auth-service
   stdin_open: true
+<<<<<<< HEAD
 
 mysql-master:
   environment:
@@ -43,3 +52,5 @@ mysql-master:
   ports:
   - "3306:3306"
   stdin_open: true
+=======
+>>>>>>> release/v1.4
